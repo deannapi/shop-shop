@@ -10,13 +10,14 @@ import {
   TOGGLE_CART,
 } from "./actions";
 
-// import { useReducer } from 'react';
+import { useReducer } from 'react';
+
 const initialState = {
   products: [],
   cart: [],
   cartOpen: false,
   categories: [],
-  currentCategory: "",
+  currentCategory: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -94,8 +95,8 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-// export function useProductReducer(initialState) {
-//   return useReducer(reducer, initialState);
-// }
+export function useProductReducer(initialState) {
+  return useReducer(reducer, initialState);
+}
 
 export default reducer;
