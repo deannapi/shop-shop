@@ -12,13 +12,16 @@
     "seed": "cd server && npm run seed",
     "heroku-postbuild": "cd client && npm run build"
   },
-  "author": "",
+  "author": "DeAnna Martinez",
   "license": "MIT",
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
+    "apollo-boost": "^0.4.9",
     "apollo-server-express": "^2.16.1",
     "express": "^4.17.1",
+    "graphql-tag": "^2.11.0",
     "if-env": "^1.0.4",
+    "nodemon": "^2.0.4",
     "redux": "^4.0.5"
   },
   "devDependencies": {
