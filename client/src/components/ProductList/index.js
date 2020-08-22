@@ -4,7 +4,7 @@ import ProductItem from "../ProductItem";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import spinner from "../../assets/spinner.gif";
 // import { useStoreContext } from "../../utils/GlobalState";
-// import { UPDATE_PRODUCTS } from "../../utils/actions";
+import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProducts } from "../../redux/actions/products";
@@ -21,7 +21,11 @@ export default function ProductList() {
 
   useEffect(() => {
     if (data) {
-      updateProducts(data.products);
+      // updateProducts(data.products);
+      dispatch({
+        type: UPDATE_PRODUCTS,
+        products: data.products
+      });
 
       data.products.forEach((product) => {
         idbPromise("products", "put", product);
