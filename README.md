@@ -8,7 +8,7 @@
 ![](redux.png)
 
 # :credit_card: Shop-Shop :credit_card:
-An E-commerce site built using Redux
+An E-commerce site built using Redux.
 
 [Check It Out Here!](https://shopping-ecomm.herokuapp.com/)
 
