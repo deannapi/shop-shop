@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
 
-var dotenv = require('dotenv');
-
-dotenv.config();
-
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mernshopping', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
