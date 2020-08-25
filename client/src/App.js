@@ -15,6 +15,10 @@ import Nav from "./components/Nav";
 import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 
+var dotenv = require('dotenv');
+
+dotenv.config();
+
 const client = new ApolloClient({
   request: (operation) => {
     const token = localStorage.getItem('id_token')
