@@ -1,11 +1,10 @@
+import ApolloClient, { ApolloLink, HttpLink } from 'apollo-boost';
+import { onError } from 'apollo-link-error'
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
-
 import { Provider } from 'react-redux';
 import store from './utils/store';
-
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
@@ -15,9 +14,9 @@ import Nav from "./components/Nav";
 import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 
-var dotenv = require('dotenv');
-
-dotenv.config();
+const errorLink = onError(({ graphQLErrors }) => {
+  if (graphQLErrors) graphQLErrors.map(({ message }) => console.log(message))
+});
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -25,7 +24,8 @@ const client = new ApolloClient({
     operation.setContext({
       headers: {
         authorization: token ? `Bearer ${token}` : ''
-      }
+      },
+      link: ApolloLink.from([errorLink, authLink, restLink, HttpLink])
     })
   },
   uri: '/graphql',
