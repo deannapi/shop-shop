@@ -25,7 +25,7 @@ const client = new ApolloClient({
       headers: {
         authorization: token ? `Bearer ${token}` : ''
       },
-      link: ApolloLink.from([errorLink, authLink, restLink, HttpLink])
+      link: ApolloLink.from([errorLink, HttpLink])
     })
   },
   uri: '/graphql',
