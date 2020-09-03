@@ -6,9 +6,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mernshopping', 
   useCreateIndex: true,
   useFindAndModify: false
 }).then(() => {
-  console.log('mongoose success');
+  console.log('MongoDB connection successful.');
 }).catch((e) => {
-  console.log('mongoose error: ', e.message)
+  console.log('MongoDB connection error: ', e.message)
 });
 
 module.exports = mongoose.connection;
