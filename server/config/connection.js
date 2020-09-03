@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
-const db = 'deannapi'
-const pswd = encodeURIComponent('Mart3141')
-
-const url = `mongodb://${db}:${pswd}@ds155596.mlab.com:55596/heroku_c9d38kpn`
-
-mongoose.connect(url, {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mernshopping', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
